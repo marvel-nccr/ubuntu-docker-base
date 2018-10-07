@@ -4,7 +4,10 @@ Docker base image for ansible provisioning using Ubuntu,
 e.g. for testing ansible roles.
 
 [marvelnccr/ubuntu-docker-base](https://hub.docker.com/r/marvelnccr/ubuntu-docker-base/)
- is based on the [phusion](http://phusion.github.io/baseimage-docker) baseimage for Ubuntu 18.04.
+ is based on the [phusion](http://phusion.github.io/baseimage-docker) baseimage.
+
+ * the v1.x series is based on Ubuntu 16.04 LTS
+ * the v2.x series is based on Ubuntu 18.04 LTS
 
 ## Usage
 
