@@ -1,6 +1,6 @@
 # See https://github.com/phusion/baseimage-docker/blob/master/Changelog.md
 # Based on Ubuntu 18.04 since v0.11
-FROM phusion/baseimage:0.10.2
+FROM phusion/baseimage:0.11
 
 RUN apt-get update && apt-get dist-upgrade -y && \
     apt-get install -y software-properties-common
