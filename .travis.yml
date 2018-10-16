@@ -8,6 +8,7 @@ env:
   global:
     - container_id: ansible-container
     - distribution: ubuntu-docker-base
+    - ansible_user: ubuntu
 
 before_install:
   - 'sudo docker build --no-cache --rm --file=Dockerfile --tag=${distribution}:ansible .'
