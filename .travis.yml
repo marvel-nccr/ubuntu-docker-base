@@ -1,22 +1,17 @@
 ---
 sudo: required
 
-env:
-  global:
-    - container_id: ansible-container
-
-  matrix:
-    - distribution: ubuntu
-      version: xenial
-      ansible_user: ubuntu
-
 services:
   - docker
 
+env:
+  global:
+    - container_id: ansible-container
+    - distribution: ubuntu-docker-base
+
 before_install:
-  - 'sudo docker pull ${distribution}:${version}'
-  - 'sudo docker build --no-cache --rm --file=Dockerfile --tag=${distribution}-${version}:ansible .'
+  - 'sudo docker build --no-cache --rm --file=Dockerfile --tag=${distribution}:ansible .'
 
 script:
-  - 'sudo docker run --name ${container_id} --detach --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro ${distribution}-${version}:ansible'
+  - 'sudo docker run --name ${container_id} --detach --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro ${distribution}:ansible'
   - 'sudo docker exec --user ${ansible_user} "${container_id}" env ANSIBLE_FORCE_COLOR=1 ansible-playbook --version'
